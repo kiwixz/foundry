@@ -19,8 +19,8 @@ def main():
     os.chdir(pwd)
 
     docker_run(
-        "foundry_iosevka",
-        ["ttf::custom", "woff2::custom"],
+        "foundry_kiosevka",
+        ["ttf::kiosevka", "woff2::kiosevka"],
         [
             "-v",
             f"{pwd}/build_plan.toml:/root/iosevka/private-build-plans.toml:ro",

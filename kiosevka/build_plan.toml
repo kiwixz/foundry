@@ -1,0 +1,6 @@
+[buildPlans.kiosevka]
+    family = "Kiosevka"
+    design = [
+        "v-at-fourfold",
+        "v-underscore-low",
+    ]
