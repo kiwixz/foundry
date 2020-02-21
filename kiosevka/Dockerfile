@@ -23,7 +23,8 @@ RUN curl -LO "https://github.com/premake/premake-core/releases/download/v5.0.0-a
     && cd ".."  \
     && rm -rf "otfcc"
 
-RUN git clone "https://github.com/be5invis/iosevka" "/root/iosevka"
+ARG IOSEVKA_REF=master
+RUN git clone --branch=$IOSEVKA_REF "https://github.com/be5invis/iosevka" "/root/iosevka"
 WORKDIR "/root/iosevka"
 
 RUN npm install && npm update
