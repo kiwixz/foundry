@@ -3,6 +3,7 @@
 import os
 import random
 import subprocess
+import zipfile
 
 
 def docker_run(name: str, args: list = [], docker_build_args: list = [], docker_run_args: list = []):
@@ -29,6 +30,12 @@ def main():
             f"{pwd}/build:/root/iosevka/dist",
         ],
     )
+
+    for dir in os.listdir("build/kiosevka"):
+        with zipfile.ZipFile(f"build/kiosevka-{dir}.zip", "w", zipfile.ZIP_DEFLATED, 9) as zip:
+            path = f"build/kiosevka/{dir}"
+            for file in os.listdir(path):
+                zip.write(f"{path}/{file}", f"kiosevka-{dir}/{file}")
 
 
 if __name__ == "__main__":
