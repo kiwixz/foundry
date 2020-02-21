@@ -1,0 +1,5 @@
+[buildPlans.custom]
+    family = "Kiosevka"
+    design = [
+        "v-underscore-low"
+    ]

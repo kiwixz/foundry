@@ -18,7 +18,16 @@ def main():
     pwd = os.path.dirname(os.path.abspath(__file__))
     os.chdir(pwd)
 
-    docker_run("foundry_iosevka", ["ttf::iosevka", "woff2::iosevka"], ["-v", f"{pwd}/dist:/root/iosevka/dist"])
+    docker_run(
+        "foundry_iosevka",
+        ["ttf::custom", "woff2::custom"],
+        [
+            "-v",
+            f"{pwd}/build_plan.toml:/root/iosevka/private-build-plans.toml:ro",
+            "-v",
+            f"{pwd}/build:/root/iosevka/dist",
+        ],
+    )
 
 
 if __name__ == "__main__":
