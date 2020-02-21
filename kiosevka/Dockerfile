@@ -29,4 +29,5 @@ WORKDIR "/root/iosevka"
 
 RUN npm install && npm update
 
-ENTRYPOINT ["npm", "run", "build", "--"]
+ADD "entrypoint.sh" "/root/iosevka"
+ENTRYPOINT ["sh", "entrypoint.sh"]
