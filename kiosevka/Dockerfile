@@ -29,5 +29,6 @@ WORKDIR "/root/iosevka"
 
 RUN npm install && npm update
 
-ADD "entrypoint.sh" "/root/iosevka"
-ENTRYPOINT ["sh", "entrypoint.sh"]
+COPY "build_plan.toml" "private-build-plans.toml"
+
+RUN npm run build -- "ttf::kiosevka" "woff2::kiosevka"
