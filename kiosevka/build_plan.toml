@@ -1,9 +1,7 @@
 [buildPlans.kiosevka]
     family = "Kiosevka"
     design = [
-        "calt-center-ops",
         "calt-colons",
-        "v-at-fourfold",
         "v-underscore-low",
     ]
 
