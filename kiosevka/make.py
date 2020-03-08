@@ -7,12 +7,12 @@ import zipfile
 
 
 IMAGE_TAG = "foundry_kiosevka"
-REF = "v3.0.0-beta.3"
+IOSEVKA_REF = "v3.0.0-beta.3"
 VERSION = "1.1"
 
 
 def build():
-    subprocess.check_call(["docker", "build", "-t", IMAGE_TAG, "--build-arg", f"IOSEVKA_REF={REF}", "."])
+    subprocess.check_call(["docker", "build", "-t", IMAGE_TAG, "--build-arg", f"IOSEVKA_REF={IOSEVKA_REF}", "."])
     container_id = subprocess.check_output(["docker", "create", IMAGE_TAG]).decode().rstrip()
     try:
         os.makedirs("build", exist_ok=True)
