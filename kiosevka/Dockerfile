@@ -2,11 +2,11 @@ FROM debian:buster-slim
 
 RUN apt update  \
     && apt -y full-upgrade  \
-    && apt -y install  \
-        git openssh-client  \
-        npm ttfautohint  \
+    && apt -y --no-install-recommends install  \
+        git ca-certificates  \
+        npm make ttfautohint  \
         python3-pip  `# for otf2otc`  \
-        curl ninja-build  `# for otfcc`
+        curl gcc libc-dev ninja-build  `# for otfcc`
 
 # install otf2otc
 RUN pip3 install afdko
