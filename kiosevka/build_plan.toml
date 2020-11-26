@@ -1,7 +1,11 @@
 [buildPlans.kiosevka]
 family = "Kiosevka"
-design = [
-    "ss20",
-    "calt-kern-dotty",
-    "v-underscore-low",
+
+[buildPlans.kiosevka.variants]
+inherits = "ss20"  # curly
+underscore = "low"
+
+[buildPlans.kiosevka.ligations]
+enables = [
+    "kern-dotty",
 ]

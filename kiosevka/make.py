@@ -7,8 +7,8 @@ import zipfile
 
 
 IMAGE_TAG = "foundry_kiosevka"
-IOSEVKA_REF = "v3.1.1"
-VERSION = "1.3"
+IOSEVKA_REF = "v4.0.0"
+VERSION = "2.0.0"
 
 
 def build():

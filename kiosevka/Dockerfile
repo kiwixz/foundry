@@ -1,8 +1,7 @@
 FROM debian:buster-slim
 
 RUN apt update  \
-    && apt -y full-upgrade  \
-    && apt -y --no-install-recommends install  \
+    && apt -y --no-install-recommends upgrade  \
         git ca-certificates  \
         npm make ttfautohint  \
         python3-pip  `# for otf2otc`  \
@@ -12,9 +11,9 @@ RUN apt update  \
 RUN pip3 install afdko
 
 # install otfcc
-RUN curl -LO "https://github.com/premake/premake-core/releases/download/v5.0.0-alpha14/premake-5.0.0-alpha14-linux.tar.gz"  \
-    && tar xf "premake-5.0.0-alpha14-linux.tar.gz" -C "/usr/local/bin"  \
-    && rm "premake-5.0.0-alpha14-linux.tar.gz"  \
+RUN curl -LO "https://github.com/premake/premake-core/releases/download/v5.0.0-alpha15/premake-5.0.0-alpha15-linux.tar.gz"  \
+    && tar xf "premake-5.0.0-alpha15-linux.tar.gz" -C "/usr/local/bin"  \
+    && rm "premake-5.0.0-alpha15-linux.tar.gz"  \
     && git clone "https://github.com/caryll/otfcc"  \
     && cd "otfcc"  \
     && premake5 ninja  \
