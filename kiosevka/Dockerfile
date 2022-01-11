@@ -1,7 +1,6 @@
-FROM debian:buster-slim
+FROM ubuntu:22.04
 
-RUN apt update  \
-    && apt -y --no-install-recommends upgrade  \
+RUN apt-get update && DEBIAN_FRONTEND=noninteractive apt-get -y upgrade  \
         git ca-certificates  \
         npm make ttfautohint  \
         python3-pip  `# for otf2otc`  \
@@ -23,7 +22,7 @@ RUN curl -LO "https://github.com/premake/premake-core/releases/download/v5.0.0-a
     && rm -rf "otfcc"
 
 ARG IOSEVKA_REF=master
-RUN git clone --branch=$IOSEVKA_REF "https://github.com/be5invis/iosevka" "/root/iosevka"
+RUN git clone --branch $IOSEVKA_REF --depth 1 "https://github.com/be5invis/iosevka" "/root/iosevka"
 WORKDIR "/root/iosevka"
 
 RUN npm install && npm update
